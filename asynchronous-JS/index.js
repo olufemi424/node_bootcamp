@@ -48,7 +48,29 @@ const getDogPic = async () => {
     console.log(final);
   } catch (err) {
     console.log(err);
+    throw err;
   }
+
+  return '2: Ready 🙈';
 };
 
-getDogPic();
+(async () => {
+  try {
+    console.log('1: will get dog promise');
+    const x = await getDogPic();
+    console.log(x);
+    console.log('3: will run before promise');
+  } catch (err) {
+    console.log('Error 🔥');
+  }
+})();
+
+// console.log('1: will get dog promise');
+// getDogPic()
+//   .then(x => {
+//     console.log(x);
+//     console.log('3: will run before promise');
+//   })
+//   .catch(err => {
+//     console.log('Error 🔥');
+//   });
